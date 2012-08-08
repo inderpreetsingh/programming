@@ -14,9 +14,7 @@ cin>>base>>altitude;
 if(altitude>base)
 {
 double unit=double(altitude/(base/2));
-cout<<unit<<"\n";
 step=unit+.5;
-cout<<step<<"\n";
 }
 else
 {
@@ -55,10 +53,6 @@ for(int p=(graphHeight/2-altitude/2),q=graphWidth/2;p<=(graphHeight/2-altitude/2
 for(int p=(graphHeight/2-altitude/2),q=graphWidth/2;p<=(graphHeight/2-altitude/2)+altitude,q<=graphWidth/2+base/2;p+=step,q++)
 { triangle[p][q]='.';
 }
-
-
-
-
 
 ///////////////////////////////////////////////////////
 
