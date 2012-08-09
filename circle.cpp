@@ -31,7 +31,7 @@ circle[y][x]='_';
 
 ////////circle/////////////////
 
-int x1=graphHeight/2-radius;
+int x1=graphWidth/2-radius;
 for(int cx=-radius;cx<=radius;cx++) 
  {
  double cy=sqrt(radius*radius-cx*cx);
