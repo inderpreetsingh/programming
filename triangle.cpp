@@ -14,11 +14,11 @@ cout<<"Enter graph width: ";
 cin>>graphWidth;
 cout<<"Enter base and altitude of triangle such that base is smaller than altitude: ";
 cin>>base1>>altitude1;
-if(altitude1>base1)
-    {
-    double unit=double(altitude1/(base1/2));
-    step=unit+.5;
-    }
+    if(altitude1>base1)
+        {
+        double unit=double(altitude1/(base1/2));
+        step=unit+.5;
+        }
     else
         {
         cout<<"sorry,base is either greater than or equals to altitude.\n";
@@ -29,51 +29,53 @@ double hypotenuse1=sqrt((altitude1/2)*(altitude1/2)+(base1/2)*(base1/2))+0.5;
 int hypotenuse=hypotenuse1;
 int altitude=altitude1;
 int base=base1;
-for(row=0;row<=graphHeight;row++)
-    {
-    for(column=0;column<=graphWidth;column++)
+    
+    for(row=0;row<=graphHeight;row++)
         {
-        triangle[row][column]=' ';
+        for(column=0;column<=graphWidth;column++)
+            {
+            triangle[row][column]=' ';
+            }
         }
-    }
 
-//vertical line
-for(int y=0;y<=graphHeight;y++)
-    {
-    int x=graphWidth/2;                        
-    triangle[y][x]='|';
-    }
+/////////////vertical line///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    for(int y=0;y<=graphHeight;y++)
+        {
+        int x=graphWidth/2;                        
+        triangle[y][x]='|';
+        }
 
-//horizontal line
-for(int x=0;x<=graphWidth;x++)
-    {
-    int y=graphHeight/2;
-    triangle[y][x]='_';
-    }
+////////////horizontal line//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    for(int x=0;x<=graphWidth;x++)
+        {
+        int y=graphHeight/2;
+        triangle[y][x]='_';
+        }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //base of triangle
 int k=graphHeight/2+altitude/2;
-for(int row=(graphWidth/2-base/2);row<(graphWidth/2-base/2)+base;row++)
-    {
-    triangle[k][row]='.';
-    }
+    for(int row=(graphWidth/2-base/2);row<(graphWidth/2-base/2)+base;row++)
+        {
+        triangle[k][row]='.';
+        }
 //side 1 of triangle
-for(int p=(graphHeight/2-altitude/2),q=graphWidth/2;p<=(graphHeight/2-altitude/2)+hypotenuse,q>graphWidth/2-base/2;p+=step,q--)
-    {
-    triangle[p][q]='.';
-    }
+    for(int p=(graphHeight/2-altitude/2),q=graphWidth/2;p<=(graphHeight/2-altitude/2)+hypotenuse,q>graphWidth/2-base/2;p+=step,q--)
+        {
+        triangle[p][q]='.';
+        }
 //side 2 of triangle
-for(int p=(graphHeight/2-altitude/2),q=graphWidth/2;p<=(graphHeight/2-altitude/2)+hypotenuse,q<graphWidth/2+base/2;p+=step,q++)
-    {
-    triangle[p][q]='.';
-    }
+    for(int p=(graphHeight/2-altitude/2),q=graphWidth/2;p<=(graphHeight/2-altitude/2)+hypotenuse,q<graphWidth/2+base/2;p+=step,q++)
+        {
+        triangle[p][q]='.';
+        }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-for(row=0;row<=graphHeight;row++)
-{ 
-for(column=0;column<=graphWidth;column++)
-    { cout<<triangle[row][column];
-    }
-cout<<endl;
-}
+    for(row=0;row<=graphHeight;row++)
+        { 
+        for(column=0;column<=graphWidth;column++)
+            {
+            cout<<triangle[row][column];
+            }
+            cout<<endl;
+        }
 }
 
