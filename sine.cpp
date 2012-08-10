@@ -4,15 +4,15 @@ void SineWave :: input()
 { int choice;
 cout<<"Press\t"<< "1 for horizontal wave, 2 for vertical wave ";
 cin>>choice;
-switch(choice)
-{
-case 1: horizontalWave();
-		break;
-case 2: verticalWave();
-		break;
-default: cout<<"Invalid number you entered\n";
-}
 
+switch(choice)
+    {
+    case 1: horizontalWave();
+		    break;
+    case 2: verticalWave();
+		    break;
+    default: cout<<"Invalid number you entered\n";
+    }
 }
 
 
@@ -40,37 +40,39 @@ double range=graphEnd-graphStart;
 double unitStepX=range/sineWidth1;
 /////////////////////////////////////////////////////////////////////
 	for(int i=0;i<=sineHeight;i++)
-	{ for(int j=0;j<=sineWidth;j++)
-	sine[i][j]='a';
-	}
+	    { 
+	    for(int j=0;j<=sineWidth;j++)
+	    sine[i][j]='a';
+	    }
 
 	i=originY;                   
-	{ for(int j=originX;j<=originX+sineWidth1;j++)  
-	sine[i][j]='-'; 
-	}
+	for(int j=originX;j<=originX+sineWidth1;j++)  
+	    {
+	    sine[i][j]='-'; 
+	    }
 	
 //////////////////////////////////////////////////////////////////////
 	double x=graphStart;
 	for(int s=originX;s<=originX+sineWidth1;s++)      
-	{ double y=sin(x);
-      double Y=-y*((midY/5)*SF)+originY;                
-      int t=round(Y);
-      sine[t][s]='*';
-      x+=unitStepX;
-    }
-
+	    {
+	    double y=sin(x);
+        double Y=-y*((midY/5)*SF)+originY;                
+        int t=round(Y);
+        sine[t][s]='*';
+        x+=unitStepX;
+        }
 //////////////////////////////////////////////////////////////////////
 	for(int i=0;i<=sineHeight;i++)
-	{ for(int j=0;j<=sineWidth;j++)
-	{ cout<<sine[i][j];
-	}
-	cout<<"\n";
-	}
-	
+	    {
+	    for(int j=0;j<=sineWidth;j++)
+	        { 
+	        cout<<sine[i][j];
+	        }
+	    cout<<"\n";
+	    }
 }
 	
-
-
+/////////////////vertical wave///////////////////////////////////////////
 void SineWave::verticalWave()
 { 
 char sine[150][150];
@@ -95,14 +97,16 @@ double unitStepY=range/sineHeight1;
 cout<<unitStepY<<"\n";
 ////////////////////////////////////////////////////////////////////////
 	for(i=0;i<=sineHeight;i++)
-	{ for(j=0;j<=sineWidth;j++)
-	sine[i][j]='a';
-	}
+	    {
+	    for(j=0;j<=sineWidth;j++)
+	    sine[i][j]='a';
+	    }
 	
 	int b=originX;               
-	{ for(int a=originY;a<=originY+sineHeight1;a++)
-    sine[a][b]='|';
-	}
+	for(int a=originY;a<=originY+sineHeight1;a++)
+        {
+        sine[a][b]='|';
+        }	    
 ////////////////////////////////////////////////////////////////////////
     int Y=originY;
     for(double s=graphStart;s<=graphEnd;s+=unitStepY)
@@ -117,9 +121,12 @@ cout<<unitStepY<<"\n";
     
 ////////////////////////////////////////////////////////////////////////
 	for(i=0;i<=sineHeight;i++)
-	{ for(j=0;j<=sineWidth;j++)
-	{ cout<<sine[i][j];
-	}
-	cout<<endl;
-	} 
+	    {
+	    for(j=0;j<=sineWidth;j++)
+	        {
+	        cout<<sine[i][j];
+	        }
+	    cout<<endl;
+	    } 
 }
+
