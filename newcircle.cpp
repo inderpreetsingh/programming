@@ -120,7 +120,6 @@ int graphHeight=(graphHeight1/2.0)+0.5;
              angle*=M_PI/180.;
              double perpendicular1=radius*sin(angle);
              int perpendicular=perpendicular1;
-             cout<<perpendicular;
              for(int column=graphWidth/2-radius , CX=-radius; column<=(graphWidth/2-radius)+radius-perpendicular ,CX<=radius-perpendicular;CX++,column++)
                      {
                      double CY=(sqrt(radius*radius-CX*CX))/2.0;

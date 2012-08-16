@@ -21,3 +21,6 @@ To make a rectangle in console mode.
 
 Program4:-  (triangle.cpp)
 To make a triangle in console mode.
+
+Progrm5:-   (newcircle.cpp)
+To make an arc of circle.
