@@ -4,61 +4,64 @@ using namespace std;
 
 int main()
 {
-char circle[150][150];
-int row,column,radius,graphWidth;
-double graphHeight1;
-cout<<"Enter graph Width :";
-cin>>graphWidth;
-cout<<"Enter graph Height: ";
-cin>>graphHeight1;
-cout<<"Enter radius of circle you want: ";
-cin>>radius;
-
-int graphHeight=(graphHeight1/2)+0.5;
-    for(row=0;row<=graphHeight;row++)
-        {
-        for(column=0;column<=graphWidth;column++)
-        circle[row][column]=' ';
-        }
+    char circle[150][150];
+    int row,column,radius,graphWidth;
+    double graphHeight1;
+    cout<<"Enter graph Width :";
+    cin>>graphWidth;
+    cout<<"Enter graph Height: ";
+    cin>>graphHeight1;
+    cout<<"Enter radius of circle you want: ";
+    cin>>radius;
+    int graphHeight = (graphHeight1/2) + 0.5;
     
-///////////////vertical line/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-int x=graphWidth/2;
-    for(int y=0;y<=graphHeight;y++)
-        {
-        circle[y][x]='|';
-        }
+    //define graph
+    for(row = 0; row <= graphHeight; row++)
+    {
+        for(column = 0; column <= graphWidth; column++)
+        circle[row][column] = ' ';
+    }
     
-//////////////horizontal line////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-int y=graphHeight/2;
-    for(int x=0;x<=graphWidth;x++)
-        {
-        circle[y][x]='_';
-        }
+    //Y-axis
+    column = graphWidth/2;
+    for(row = 0; row <= graphHeight; row++)
+    {
+        circle[row][column] = '|';
+    }
+   
+    //X-axis
+    row = graphHeight/2;
+    for(column = 0; column <= graphWidth; column++)
+    {
+        circle[row][column] = '_';
+    }
   
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-int x1=graphWidth/2-radius;
-    for(int cX=-radius;cX<=radius;cX++)
-        {
-        double cY=(sqrt(radius*radius-cX*cX))/2.0;
-        int lowerArc=(graphHeight/2)+round(cY);
-        int upperArc=(graphHeight/2)-round(cY);
-        circle[upperArc][x1]='.';
-        circle[lowerArc][x1]='.';
+    //draw circle
+    int circleLeft = graphWidth/2 - radius;
+    for(int cX = - radius; cX <= radius; cX++)
+    {
+        double cY = (sqrt(radius * radius - cX * cX))/2.0;
+        int lowerArc = (graphHeight/2) + round(cY);
+        int upperArc = (graphHeight/2) - round(cY);
+        circle[upperArc][circleLeft] = '.';
+        circle[lowerArc][circleLeft] = '.';
      
-            for(int upperFilled=upperArc+1;upperFilled<=graphHeight/2;upperFilled++)
-            circle[upperFilled][x1]='*';
-            for(int lowerFilled=graphHeight/2;lowerFilled<lowerArc;lowerFilled++)
-            circle[lowerFilled][x1]='*';
+        for(int upperFilled = upperArc + 1; upperFilled <= graphHeight/2; upperFilled++)
+        circle[upperFilled][circleLeft] = '*';
+        for(int lowerFilled = graphHeight/2; lowerFilled < lowerArc; lowerFilled++)
+        circle[lowerFilled][circleLeft] = '*';
     
-        x1++;
-        }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    for(row=0;row<=graphHeight;row++)
+        circleLeft++;
+    }
+        
+    //print circle
+    
+    for(row = 0; row <= graphHeight; row++)
+    {
+        for(column = 0; column <= graphWidth; column++)
         {
-        for(column=0;column<=graphWidth;column++)
-            {
             cout<<circle[row][column];
-            }
-        cout<<endl;
         }
+        cout<<endl;
+    }
 }
