@@ -3,6 +3,7 @@
 using namespace std;
 int main()
 {
+    //inder
     char circle[150][150];
     int graphWidth;
     double graphHeight1,angle,radius;
