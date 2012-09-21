@@ -16,13 +16,12 @@ int main()
     cin>>angle;
     int graphHeight = ( graphHeight1 / 2.0 ) + 0.5;
    
-    if(angle > 360)
-    {
+   
         while(angle > 360)
         {
             angle = angle - 360;
         }
-    }
+   
     
     //define graph
     for(int row = 0; row <= graphHeight; row++)
